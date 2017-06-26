@@ -11,5 +11,15 @@ recognition <br>
 real time), and to augment a sense of emotional feeling with visual demonstration. After all of this, we just wonder how the emotion application can be. Therefore, we think of the amplification of the emotion in video. There are a lot of video that you would feel awkward watching it because of its boring and no effect. So we want to amplify the context in the video to make the video better.
 </p>
 
-<h2>Dataset Description</h2>
-# NNIME-Emotion Corpus
+<h2>Dataset Description: NNIME-Emotion Corpus</h2>
+<p>The increasing availability of large-scale emotion corpus with advancement in emotion recognition algorithms have enabled the emergence of next-generation humanmachine interfaces. The database is a result of the collaborative work between engineers and drama experts. This database includes recordings of 44 subjects engaged in spontaneous dyadic spoken interactions.
+The multimodal data includes approximately 11-hour worth of audio, video, and electrocardiogram data recorded continuously and synchronously. The database is also completed with a rich set of emotion annotations of discrete and continuous-in-time annotation from a total of 50 annotators per subject.
+The emotion annotation further includes a diverse perspectives: peer-report, directorreport, self-report, and observer-report. This carefully-engineered data collection and annotation processes provide an additional valuable resource to quantify and investigate various aspects of affective phenomenon and human communication. To our best knowledge, the NNIME is one of the few large-scale Chinese affective dyadic inter-action database that have been systematic-ally collected, organized, and to be publicly released to the research community.</p>
+
+<h2Result</h2>
+
+||Activation|Valence|
+|---|:---:|:---:|
+|SVR(Audio)|64.7%|64.7%|64.3%|
+|---|:---:|:---:|
+|LSTM-RNN(Audio)|64.7%|64.7%|64.3%|
