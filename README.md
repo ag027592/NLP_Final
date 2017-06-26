@@ -1,6 +1,6 @@
-# 周惶振 (104061701) 何元通 (105062575)
+# NLP Final Project / 周惶振 (104061701) 何元通 (105062575)
 
-<h1>NLP Final Project /Amplifying a Sense of Emotion toward Drama-
+<h1>Amplifying a Sense of Emotion toward Drama-
 Long Short-Term Memory Recurrent Neural Network for dynamic emotion
 recognition <br>
 
