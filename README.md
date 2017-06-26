@@ -18,7 +18,7 @@ The emotion annotation further includes a diverse perspectives: peer-report, dir
 
 <h2Result</h2>
 
-|Activation|Valence|
+||Activation|Valence|
 |---|:---:|:---:|
 |SVR(Audio)|64.7%|64.7%|64.3%|
 |---|:---:|:---:|
