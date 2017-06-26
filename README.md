@@ -1,10 +1,12 @@
 # 周惶振 (104061701) 何元通 (105062575)
 
-<h1>Project 3 / Scene recognition with bag of words<br>
+<h1>NLP Final Project /Amplifying a Sense of Emotion toward Drama-
+Long Short-Term Memory Recurrent Neural Network for dynamic emotion
+recognition <br>
+
 </h1>
 
-<h2>Overview</h2>
-<p>The goal of this project is to introduce you to image recognition. This project will be implemented a basic bag of words model. We will classify scenes into one of 15 categories by training and testing on the 15 scene database (introduced in Lazebnik et al. 2006, although built on top of previously published datasets). 
-</p><p>
-We will try some simple feature extracting method, like tiny image and bag of sift. After that, we will try to use nearest neighbor and support vector machine to classifity.
+<h2>Introduction</h2>
+<p>We want to use the NNIME database to study the emotion behavior (such as arousal and valence state) in small duration (like in
+real time), and to augment a sense of emotional feeling with visual demonstration. After all of this, we just wonder how the emotion application can be. Therefore, we think of the amplification of the emotion in video. There are a lot of video that you would feel awkward watching it because of its boring and no effect. So we want to amplify the context in the video to make the video better.
 </p>
