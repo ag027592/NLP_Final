@@ -16,10 +16,9 @@ real time), and to augment a sense of emotional feeling with visual demonstratio
 The multimodal data includes approximately 11-hour worth of audio, video, and electrocardiogram data recorded continuously and synchronously. The database is also completed with a rich set of emotion annotations of discrete and continuous-in-time annotation from a total of 50 annotators per subject.
 The emotion annotation further includes a diverse perspectives: peer-report, directorreport, self-report, and observer-report. This carefully-engineered data collection and annotation processes provide an additional valuable resource to quantify and investigate various aspects of affective phenomenon and human communication. To our best knowledge, the NNIME is one of the few large-scale Chinese affective dyadic inter-action database that have been systematic-ally collected, organized, and to be publicly released to the research community.</p>
 
-<h2Result</h2>
+<h2>Result</h2>
 
 ||Activation|Valence|
-|---|:---:|:---:|
 |SVR(Audio)|64.7%|64.7%|64.3%|
 |---|:---:|:---:|
 |LSTM-RNN(Audio)|64.7%|64.7%|64.3%|
