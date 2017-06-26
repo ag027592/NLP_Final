@@ -18,9 +18,9 @@ The emotion annotation further includes a diverse perspectives: peer-report, dir
 
 <h2>Result</h2>
 
-||Activation|Valence|
+|Spearman Correlation|Activation|Valence|
 |---|:---:|:---:|
 |SVR(Audio)|0.32|0.09|
-|SVR(Audio)|64.7%|64.7%|
-|LSTM-RNN(Audio)|64.7%|64.7%|
-|LSTM-RNN(Audio)|64.7%|64.7%|
+|LSTM-RNN(Audio)|0.43|0.13|
+|SVR(Text)|0.43|0.32|
+|LSTM-RNN(Text)|0.1|0.04|
