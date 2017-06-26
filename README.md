@@ -30,9 +30,10 @@ By RNNLM, we train two LSTM model for audio and text respectively, the structure
 
 <h2> Installation</h2>
 
-* 1. To Download all the packages.
-* 2. To Change the path in the .../homework3/code/
-* 3. To open the pro3.m and press F5. (You can choose the type of "FEATURE" AND "CLASSIFIER")
+* 1. Downloading the file "code".
+* 2. Changing the path in the .../code/
+* 3. LSTM_RNN: To acess to .../code/LSTM_RNN_Code and run LSTM_RNN_Regression.py code
+* 4. SVR: To acess to .../code/SVR_code and run performSVR.py code (You have to download the needed data in "連結.txt")
 
 
 <h2>Result</h2>
