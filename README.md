@@ -29,6 +29,7 @@ By RNNLM, we train two LSTM model for audio and text respectively, the structure
 <img src="LSTM_RNN.png" height="550px">
 
 <h2> Installation</h2>
+
 * 1. To Download all the packages.
 * 2. To Change the path in the .../homework3/code/
 * 3. To open the pro3.m and press F5. (You can choose the type of "FEATURE" AND "CLASSIFIER")
