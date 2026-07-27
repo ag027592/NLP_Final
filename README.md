@@ -1,46 +1,87 @@
-# NLP Final Project / 周惶振 (104061701) 何元通 (105062575)
+# Dynamic Emotion Recognition with LSTM-RNN
 
-<h1>Amplifying a Sense of Emotion toward Drama-
-Long Short-Term Memory Recurrent Neural Network for dynamic emotion
-recognition <br>
+Course final project for **Natural Language Processing**, Department of Electrical
+Engineering, National Tsing Hua University (2017).
 
-</h1>
+Authors: Huang-Cheng Chou, Yuan-Tung Ho
 
-<h2>Introduction</h2>
-<p>We want to use the NNIME database to study the emotion behavior (such as arousal and valence state) in small duration (like in
-real time), and to augment a sense of emotional feeling with visual demonstration. After all of this, we just wonder how the emotion application can be. Therefore, we think of the amplification of the emotion in video. There are a lot of video that you would feel awkward watching it because of its boring and no effect. So we want to amplify the context in the video to make the video better.
-</p>
+## Overview
 
-<h2>Dataset Description: NNIME-Emotion Corpus</h2>
-<p>The increasing availability of large-scale emotion corpus with advancement in emotion recognition algorithms have enabled the emergence of next-generation humanmachine interfaces. The database is a result of the collaborative work between engineers and drama experts. This database includes recordings of 44 subjects engaged in spontaneous dyadic spoken interactions.
-The multimodal data includes approximately 11-hour worth of audio, video, and electrocardiogram data recorded continuously and synchronously. The database is also completed with a rich set of emotion annotations of discrete and continuous-in-time annotation from a total of 50 annotators per subject.
-The emotion annotation further includes a diverse perspectives: peer-report, directorreport, self-report, and observer-report. This carefully-engineered data collection and annotation processes provide an additional valuable resource to quantify and investigate various aspects of affective phenomenon and human communication. To our best knowledge, the NNIME is one of the few large-scale Chinese affective dyadic inter-action database that have been systematic-ally collected, organized, and to be publicly released to the research community.</p>
+Most emotion recognition systems assign a single label to a whole utterance. This
+project instead tracks emotion **as it changes over time**, predicting continuous
+arousal and valence at short time scales so that the emotional contour of a
+dyadic interaction can be followed frame by frame.
 
-<h2>SVR Model</h2>
-<p>
-Support vector regression is used to predict the final results. We  can get  approximately
-30 to 40 percentage of correlation or sometimes  even  70  percentage  of  correlation  in  the  better  situation  without  fine tuning. Furthermore, for the purpose of making the result better, we have once performed feature selection. Nevertheless, perhaps the feature are tuned the best in fasttext, we found that using all features can perform better than simply using merely some part. Eventually, we have consider to use other data mining algorithms such as binary tree… etc. in the future works to show the advantage of our main purpose of LSTM-RNN.
-</p>
+We then use those continuous predictions for an application: amplifying the
+emotional contour of a video, so that footage which feels flat can be re-presented
+with visual emphasis that follows what the speakers are actually conveying.
 
-<h2>LSTM-RNN Model</h2>
-<p>
-By RNNLM, we train two LSTM model for audio and text respectively, the structure showed in figure, and parameter showed below after training LSTM model, we integrate the prediction of activation and valence of each frame to sentence by mean. 
-</p>
-<img src="LSTM_RNN.png" height="550px">
+## Dataset: NNIME
 
-<h2> Installation</h2>
+The **NNIME** corpus (The NTHU-NTUA Chinese Interactive Multimodal Emotion Corpus)
+is a collaboration between engineers and drama experts. It contains roughly
+11 hours of synchronously recorded audio, video, and electrocardiogram data from
+44 subjects engaged in spontaneous dyadic spoken interactions.
 
-* 1. Downloading the file "code".
-* 2. Changing the path in the .../code/
-* 3. LSTM_RNN: To acess to .../code/LSTM_RNN_Code and run LSTM_RNN_Regression.py code
-* 4. SVR: To acess to .../code/SVR_code and run performSVR.py code (You have to download the needed data in "連結.txt")
+Its annotation is unusually rich: discrete and continuous-in-time labels from
+50 annotators per subject, collected from four perspectives — peer-report,
+director-report, self-report, and observer-report. It is one of the few
+large-scale Chinese affective dyadic interaction databases that have been
+systematically collected and released to the research community.
 
+## Models
 
-<h2>Result</h2>
+**SVR baseline.** Support vector regression over acoustic and fastText text
+features. Reaches roughly 0.30-0.40 Spearman correlation without tuning, and up
+to around 0.70 in favourable segments. We tried feature selection, but using the
+full feature set outperformed any subset we tested.
 
-|Spearman Correlation|Activation|Valence|
+**LSTM-RNN.** Two LSTM models are trained separately for the audio and the text
+stream. Per-frame predictions of arousal and valence are aggregated to the
+sentence level by averaging.
+
+![LSTM-RNN architecture](LSTM_RNN.png)
+
+## Results
+
+Spearman correlation against continuous annotations:
+
+| Model | Activation | Valence |
 |---|:---:|:---:|
-|SVR(Audio)|0.32|0.09|
-|LSTM-RNN(Audio)|0.43|0.13|
-|SVR(Text)|0.43|0.32|
-|LSTM-RNN(Text)|0.1|0.04|
+| SVR (audio) | 0.32 | 0.09 |
+| LSTM-RNN (audio) | **0.43** | 0.13 |
+| SVR (text) | 0.43 | **0.32** |
+| LSTM-RNN (text) | 0.10 | 0.04 |
+
+The audio stream benefits clearly from temporal modelling, while the text stream
+does not: with only sentence-level lexical cues available per frame, the LSTM
+overfits where the simpler SVR generalises.
+
+## Running the code
+
+1. Download the `code` directory.
+2. Update the dataset paths inside the scripts.
+3. LSTM-RNN: run `code/LSTM_RNN_Code/LSTM_RNN_Regression.py`
+4. SVR: run `code/SVR_code/performSVR.py` (requires the data listed in the
+   accompanying link file)
+
+## Repository layout
+
+| Path | Contents |
+|---|---|
+| `code/` | LSTM-RNN and SVR training and evaluation scripts |
+| `demo/` | Emotion-amplified video demonstration |
+| `report/` | Written project report |
+| `PPT/` | Final presentation slides |
+
+## Note
+
+This is a 2017 undergraduate-era course project, kept here as a record of early
+work on continuous emotion recognition. For current research on speech emotion
+recognition under subjectivity, see
+[EMO-SUPERB](https://github.com/ag027592/EMO-SUPERB) and
+[Embracing-Multi-Label](https://github.com/ag027592/Embracing-Multi-Label).
+
+## License
+
+Released under the MIT License. See [LICENSE](LICENSE).
